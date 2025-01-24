@@ -15,13 +15,13 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
-        // Schema::disableForeignKeyConstraints();
-        // Product::truncate();
-        // Schema::enableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
+        Product::truncate();
+        Schema::enableForeignKeyConstraints();
 
         for($i=0;$i<10;$i++){
             Product::create([
-                'product_id'=>'SP'.substr('0000000000',strlen($i+1)).($i+1),
+                'id'=>'SP'.substr('0000000000',strlen($i+1)).($i+1),
                 'name'=>'Sản phẩm '.($i+1),
                 'category_id'=>rand(0,1),
                 'price'=>rand(20,100),

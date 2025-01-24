@@ -15,9 +15,9 @@ class CategoryProductSeeder extends Seeder
      */
     public function run()
     {
-        // Schema::disableForeignKeyConstraints();
-        // CategoryProduct::truncate();
-        // Schema::enableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
+        CategoryProduct::truncate();
+        Schema::enableForeignKeyConstraints();
 
         $data=['Guitar','Piano','Drum'];
         foreach($data as $dt){

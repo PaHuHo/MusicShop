@@ -16,15 +16,15 @@ class CustomerSeeder extends Seeder
      */
     public function run()
     {
-        // Schema::disableForeignKeyConstraints();
-        // Customer::truncate();
-        // Schema::enableForeignKeyConstraints();
+        Schema::disableForeignKeyConstraints();
+        Customer::truncate();
+        Schema::enableForeignKeyConstraints();
         
         for($i=0;$i<10;$i++){
             Customer::create([
                 'customer_id'=>'KH'.substr('0000000000',strlen($i+1)).($i+1),
-                'name' => 'Nhân viên '.($i+1),
-                'email' => 'test'.($i+1).'@gmail.com',
+                'name' => 'Khách hàng '.($i+1),
+                'email' => 'Khtest'.($i+1).'@gmail.com',
                 'password'=>Hash::make('123456'),
                 'phone_number'=>'0903'.substr("0000000", strlen($i + 1)) . ($i + 1),
             ]);
