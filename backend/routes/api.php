@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/user', [UserController::class,'index'])->name('list-user');
+Route::get('/user', [UserController::class,'index']);
 Route::get('/user/search', [UserController::class,'search'])->name('search-user');
 Route::post('/user/create', [UserController::class,'storeAdd'])->name('create-user');
 Route::post('/user/edit/{id?}', [UserController::class,'storeEdit'])->name('edit-user');

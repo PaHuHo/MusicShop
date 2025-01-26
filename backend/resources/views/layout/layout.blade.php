@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-navbar-fixed sidebar-collapse">
@@ -76,12 +78,12 @@
         </ul>
     </nav>
 
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style='height:810px;overflow-y:auto'>
         <!-- Brand Logo -->
         <div to="/" class="brand-link" :class="" style="padding-left: 0">
             <img src="https://www.logoground.com/uploads8/dv8y2020700642020-04-202666735broken-game.jpg" alt="List Game"
                 class="brand-image img-circle elevation-3" style="opacity: .8">
-            <span class="brand-text font-weight-light">Management Music Shop</span>
+            <span class="brand-text font-weight-light">Music Shop</span>
         </div>
 
         <!-- Sidebar -->
@@ -90,68 +92,22 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
-                        <a to="/" class="nav-link" :class="{ active: routeNow == '/' }">
-                            <i class="nav-icon fas fa-gamepad"></i>
-                            <p>Home</p>
+                        <a class="nav-link" >
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>User</p>
                         </a>
                     </li>
                     <!-- menu-open: mo menu , active gan nav-link de hien thi cai nao dang active -->
-                    <li class="nav-item" :class="{ 'menu-open': isMenuOpen }" @click="isMenuOpen = !isMenuOpen">
-                        <router-link :to="routeNow" class="nav-link" :class="{ active: subIsActive(['/management']) }">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Management
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </router-link>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <router-link :to="{ name: 'game' }" class="nav-link "
-                                    :class="{ active: routeNow == '/management' }">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Game</p>
-                                </router-link>
-                            </li>
-                            <li class="nav-item">
-                                <router-link :to="{ name: 'category' }" class="nav-link"
-                                    :class="{ active: routeNow == '/management/category' }">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Category</p>
-                                </router-link>
-                            </li>
-                            <!-- <li class="nav-item">
-                                <a href="./index3.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Dashboard v3</p>
-                                </a>
-                            </li> -->
-                        </ul>
-                    </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="nav-icon fas fa-star"></i>
-                            <p>
-                                Favourite
-                                <!-- <span class="right badge badge-danger">New</span> -->
-                            </p>
+                        <a  class="nav-link" >
+                            <i class="nav-icon fas fa-shopping-bag"></i>
+                            <p>Product</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="nav-icon fas fa-crown"></i>
-                            <p>
-                                Ranking List
-                                <!-- <span class="right badge badge-danger">New</span> -->
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
-                            <i class="nav-icon fas fa-award"></i>
-                            <p>
-                                The Game Awards
-                                <!-- <span class="right badge badge-danger">New</span> -->
-                            </p>
+                        <a  class="nav-link">
+                            <i class="nav-icon fas fa-list"></i>
+                            <p>Category</p>
                         </a>
                     </li>
                 </ul>
@@ -162,9 +118,9 @@
     </aside>
     @yield('main-content')
 
-    
     <script src="//cdn.ckeditor.com/4.20.0/basic/ckeditor.js"></script>
 
+   
     <!-- jQuery -->
     <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -195,7 +151,7 @@
     <script src="{{ asset('assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('assets/js/adminlte.js') }}"></script>
-    
+
     <!-- AdminLTE for demo purposes -->
     <!-- <script src="assets/dists/js/demo.js"></script> -->
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
