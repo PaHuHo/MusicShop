@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -28,3 +29,15 @@ Route::post('/user/delete/{id?}', [UserController::class,'storeDelete'])->name('
 
 
 Route::get('/product', [ProductController::class,'index']);
+Route::get('/product/detail/{id}', [ProductController::class,'detail'])->name('get-detail-product');
+Route::get('/product/search', [ProductController::class,'search'])->name('search-product');
+Route::post('/product/create', [ProductController::class,'storeAdd'])->name('create-product');
+Route::post('/product/edit/{id?}', [ProductController::class,'storeEdit'])->name('edit-product');
+Route::post('/product/delete/{id?}', [ProductController::class,'storeDelete'])->name('delete-product');
+
+Route::get('/category', [CategoryController::class,'index'])->name('get-list-category');
+Route::get('/category/search', [CategoryController::class,'search'])->name('search-category');
+Route::post('/category/create', [CategoryController::class,'storeAdd'])->name('create-category');
+
+
+

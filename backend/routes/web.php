@@ -14,6 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}',function(){
+Route::get('/',function(){
     return View('User/index');
-})->where('any', '.*');
+})->where('any', '.*')->name('user-page');
+
+
+Route::get('/product',function(){
+    return View('Product/index');
+})->where('any', '.*')->name('product-page');
+
+Route::get('/product/detail/{id}',function(){
+    return View('Product/detail-product');
+})->where('any', '.*')->name('detail-product-page');
+
+Route::get('/category',function(){
+    return View('category/index');
+})->where('any', '.*')->name('category-page');

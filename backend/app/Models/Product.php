@@ -4,12 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
     use HasFactory;
-    public $primaryKey = 'product_id';
     protected $table='product';
+    public $primaryKey = 'product_id';
+    protected $keyType = 'string';
+    public $incrementing = false;
     protected $fillable=[
         'product_id',
         'name',
@@ -21,4 +24,8 @@ class Product extends Model
         'category_id',
         'is_sales',
     ];
+
+    public function category(){
+        return $this->BelongsTo(CategoryProduct::class,'category_id','id');
+    }
 }

@@ -21,12 +21,13 @@ class ProductSeeder extends Seeder
 
         for($i=0;$i<10;$i++){
             Product::create([
-                'id'=>'SP'.substr('0000000000',strlen($i+1)).($i+1),
-                'name'=>'Sản phẩm '.($i+1),
-                'category_id'=>rand(0,1),
+                'product_id'=>'P'.substr('0000000000',strlen($i+1)).($i+1),
+                'name'=>'Product '.($i+1),
+                'category_id'=>rand(1,3),
                 'price'=>rand(20,100),
                 'quantity'=>rand(10,100),
-                'description'=>'Mo ta cho san pham '.'SP'.substr('0000000000',strlen($i+1)).($i+1),
+                'discount'=>rand(0,50),
+                'description'=>'Mo ta cho san pham '.'P'.substr('0000000000',strlen($i+1)).($i+1),
             ]);
         }
     }

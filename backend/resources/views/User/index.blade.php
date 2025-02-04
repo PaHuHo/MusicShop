@@ -48,13 +48,13 @@
             <div class="col">
                 <a class="btn btn-success" id="create_User" data-toggle="modal" data-target="#createForm"><i class="fa fa-user-plus"></i>Add User</a>
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <div class="row">
                     <div class="col">
                         <button type="submit" class="btn btn-labeled btn-primary">
                             <i class="fa fa-search"></i>Search</button>
                     </div>
-                    <div class="col-4 delete-search">
+                    <div class="col delete-search">
                         <a class="btn btn-warning text-light" id="btnRefresh">
                             <i class="fa fa-sync-alt"></i>Refresh</a>
                     </div>
@@ -72,29 +72,30 @@
                     <div class="card">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-hover">
+                            <table id="example2" class="table table-bordered table-hover" style="width: 100%; table-layout: fixed;">
                                 <thead>
                                     <tr class="bg-info">
-                                        <th>#</th>
+                                        <th style="width: 5%;">#</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Status</th>
-                                        <th>Function</th>
+                                        <th style="width: 20%;">Function</th>
                                     </tr>
                                 </thead>
                                 <tbody id="table_data">
 
                                 </tbody>
-                                <tfoot id="paginate">
 
-
-
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
+
+                    <!-- Paginate -->
+                    <div id="paginate">
+                    </div>
+                    <!-- /.paginate -->
                 </div>
                 <!-- /.col -->
             </div>
@@ -304,14 +305,14 @@
         function createPaginate(data, index) {
             var paginateHtml = '';
             if (index != null) {
-                paginateHtml += '<tr><th class="pagination" >';
+                paginateHtml += '<ul class="pagination" >';
                 data.forEach(function(link, index) {
 
-                    htmlStr = "<div class='page-item'><a  class='page-link btn' data-url='" + link.url + "'>" + link.label + "</a></div>";
+                    htmlStr = "<li class='page-item'><a  class='page-link btn' data-url='" + link.url + "'>" + link.label + "</a></li>";
                     paginateHtml += htmlStr
 
                 })
-                paginateHtml += '</th></tr>'
+                paginateHtml += '</ul>'
             }
 
             const paginateElement = document.getElementById('paginate');
@@ -427,7 +428,6 @@
                     })
                     setTimeout(function() {
                         loadUsers();
-                        $('#createForm').modal('hide');
                     }, 1500);
                 }
             })

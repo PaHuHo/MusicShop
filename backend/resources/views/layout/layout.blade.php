@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Music Shop | @yield('title-content')</title>
 
+    <link rel="stylesheet" href="{{ asset('assets/css/theme.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -28,6 +29,10 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.min.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.2.0/classic/ckeditor.js"></script>
+    
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-navbar-fixed sidebar-collapse">
@@ -78,7 +83,7 @@
         </ul>
     </nav>
 
-    <aside class="main-sidebar sidebar-dark-primary elevation-4" style='height:810px;overflow-y:auto'>
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" style='height:875px;overflow-y:auto'>
         <!-- Brand Logo -->
         <div to="/" class="brand-link" :class="" style="padding-left: 0">
             <img src="https://www.logoground.com/uploads8/dv8y2020700642020-04-202666735broken-game.jpg" alt="List Game"
@@ -92,20 +97,20 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
-                        <a class="nav-link" >
+                        <a class="nav-link" href="{{route('user-page')}}">
                             <i class="nav-icon fas fa-user"></i>
                             <p>User</p>
                         </a>
                     </li>
                     <!-- menu-open: mo menu , active gan nav-link de hien thi cai nao dang active -->
                     <li class="nav-item">
-                        <a  class="nav-link" >
+                        <a  class="nav-link" href="{{route('product-page')}}">
                             <i class="nav-icon fas fa-shopping-bag"></i>
                             <p>Product</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a  class="nav-link">
+                        <a  class="nav-link" href="{{route('category-page')}}">
                             <i class="nav-icon fas fa-list"></i>
                             <p>Category</p>
                         </a>
@@ -117,8 +122,6 @@
         <!-- /.sidebar -->
     </aside>
     @yield('main-content')
-
-    <script src="//cdn.ckeditor.com/4.20.0/basic/ckeditor.js"></script>
 
    
     <!-- jQuery -->
