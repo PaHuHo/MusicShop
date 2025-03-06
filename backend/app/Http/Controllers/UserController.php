@@ -79,7 +79,7 @@ class UserController extends Controller
         $user->is_active = $request->is_active;
         $user->save();
         return response()->json([
-            'message' => 'Edit Success',
+            'message' => 'Update Success',
             'status' => 'success',
             'user' => $user
         ], 200);
@@ -89,7 +89,7 @@ class UserController extends Controller
     {
 
         $user = User::find($id);
-        $user->is_delete = 0;
+        $user->is_delete = 1;
         $user->save();
         return response()->json([
             'message' => 'Delete Success',

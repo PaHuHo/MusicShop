@@ -96,12 +96,7 @@
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('user-page')}}">
-                            <i class="nav-icon fas fa-user"></i>
-                            <p>User</p>
-                        </a>
-                    </li>
+                    
                     <!-- menu-open: mo menu , active gan nav-link de hien thi cai nao dang active -->
                     <li class="nav-item">
                         <a  class="nav-link" href="{{route('product-page')}}">
@@ -110,9 +105,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{route('user-page')}}">
+                            <i class="nav-icon fas fa-user"></i>
+                            <p>User</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a  class="nav-link" href="{{route('category-page')}}">
                             <i class="nav-icon fas fa-list"></i>
                             <p>Category</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a  class="nav-link" href="{{route('logout')}}">
+                            <i class="nav-icon fas fa-list"></i>
+                            <p>Logout</p>
                         </a>
                     </li>
                 </ul>

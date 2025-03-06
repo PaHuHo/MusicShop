@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,19 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',function(){
-    return View('User/index');
-})->where('any', '.*')->name('user-page');
+Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');;
+Route::post('/login', [AuthController::class, 'storeLogin'])->name('store-login');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/user', function () {
+        return View('User/index');
+    })->where('any', '.*')->name('user-page');
 
-Route::get('/product',function(){
-    return View('Product/index');
-})->where('any', '.*')->name('product-page');
+    Route::get('/', function () {
+        return View('Product/index');
+    })->where('any', '.*')->name('product-page');
 
-Route::get('/product/detail/{id}',function(){
-    return View('Product/detail-product');
-})->where('any', '.*')->name('detail-product-page');
+    Route::get('/product/detail/{id}', function () {
+        return View('Product/detail-product');
+    })->where('any', '.*')->name('detail-product-page');
 
-Route::get('/category',function(){
-    return View('category/index');
-})->where('any', '.*')->name('category-page');
+    Route::get('/category', function () {
+        return View('category/index');
+    })->where('any', '.*')->name('category-page');
+});

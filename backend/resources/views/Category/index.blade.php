@@ -39,35 +39,12 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Name</th>
-                                        <th>Email</th>
                                         <th>Function</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @for($i=0;$i<10;$i++)
-                                        <tr v-for="category in listCategory">
-                                        <td>ID {{$i+1}}</td>
-                                        <td>Nhân viên {{$i+1}}</td>
-                                        <td>Email {{$i+1}}</td>
-                                        <td>
-                                            <button class="btn btn-primary"
-                                                @click="openModel('#editForm', category)"><i
-                                                    class="fas fa-edit"></i>Update</button>
-
-                                            <button class="btn btn-danger"
-                                                @click="openModel('#editForm', category)"><i
-                                                    class="fas fa-delete"></i>Delete</button>
-                                        </td>
-                                        </tr>
-                                        @endfor
+                                    
                                 </tbody>
-                                <tfoot>
-                                    <!-- <tr>
-                                            <th>ID</th>
-                                            <th>Category Name</th>
-                                            <th>Function</th>
-                                        </tr> -->
-                                </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->

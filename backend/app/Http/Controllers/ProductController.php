@@ -141,6 +141,7 @@ class ProductController extends Controller
             'description' => $request->productDescription,
             'category_id' => $request->productCategory,
             'discount' => $request->productDiscount,
+            'is_sales' => $request->productStatus,
             'image' => $product_image,
         ));
 

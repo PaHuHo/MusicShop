@@ -244,6 +244,10 @@
                                 <input type="range" id="discountUpdate" name="productDiscount" min="0" max="100" step="1">
                                 <span id="discountValueUpdate">0</span>%
                             </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="edit_status" name="productStatus" value="1">
+                                <label class="form-check-label" for="edit_status" >Available</label>
+                            </div>
                             <div class="mb-3">
                                 <input type="file" class="custom-file" id="productImageUpdate" accept="image/*" name="productImage" onchange="document.getElementById('imagePreviewUpdate').src = window.URL.createObjectURL(this.files[0])">
                                 <!-- <label class="custom-file-label" for="productImage">Choose file</label> -->
@@ -389,7 +393,7 @@
             //Dùng formData mới lấy dc input là file, dùng serialize không lấy được input file
             let formData = new FormData(form);
             currentSearchParams = new URLSearchParams(formData).toString()
-            fetchData(1,currentSearchParams);
+            fetchData(1, currentSearchParams);
         });
 
         function loadProduct() {
