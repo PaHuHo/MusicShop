@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return Product::all();
+        return Product::with('category')->where('is_sales',1)->orderBy('updated_at', 'desc')->get();
     }
 
     public function search(Request $request)
@@ -115,12 +115,12 @@ class ProductController extends Controller
 
             'productDescription' => 'required',
 
-            'productImage' => 'mimes:jpeg,jpg,png|max:2048|dimensions:max_width=1024',
+            'productImage' => 'image:mimes:jpeg,jpg,png|max:2048|dimensions:max_width=1024',
 
         ], $messages);
         $product = Product::where('product_id', $request->productId)->first();
         if ($request->hasFile('productImage')) {
-
+            
             if (file_exists(public_path() . '/storage/' . $product->image)) {
                 @unlink(public_path() . '/storage/' . $product->image,);
 
@@ -141,7 +141,7 @@ class ProductController extends Controller
             'description' => $request->productDescription,
             'category_id' => $request->productCategory,
             'discount' => $request->productDiscount,
-            'is_sales' => $request->productStatus,
+            'is_sales' => $request->has('productStatus')?$request->productStatus:0,
             'image' => $product_image,
         ));
 

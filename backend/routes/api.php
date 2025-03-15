@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -16,10 +17,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::get('/user', [UserController::class,'index']);
 Route::get('/user/search', [UserController::class,'search'])->name('search-user');
@@ -39,5 +36,12 @@ Route::get('/category', [CategoryController::class,'index'])->name('get-list-cat
 Route::get('/category/search', [CategoryController::class,'search'])->name('search-category');
 Route::post('/category/create', [CategoryController::class,'storeAdd'])->name('create-category');
 
+
+Route::post('/login', [AuthController::class,'loginCustomer']);
+
+Route::middleware(['auth:customer'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logoutCustomer']);
+    Route::get('/me', [AuthController::class, 'getCustomer']);
+});
 
 

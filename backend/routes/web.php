@@ -19,20 +19,20 @@ Route::get('/login', [AuthController::class, 'login'])->name('login')->middlewar
 Route::post('/login', [AuthController::class, 'storeLogin'])->name('store-login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth:web')->group(function () {
     Route::get('/user', function () {
         return View('User/index');
-    })->where('any', '.*')->name('user-page');
+    })->name('user-page');
 
     Route::get('/', function () {
         return View('Product/index');
-    })->where('any', '.*')->name('product-page');
+    })->name('product-page');
 
     Route::get('/product/detail/{id}', function () {
         return View('Product/detail-product');
-    })->where('any', '.*')->name('detail-product-page');
+    })->name('detail-product-page');
 
     Route::get('/category', function () {
         return View('category/index');
-    })->where('any', '.*')->name('category-page');
+    })->name('category-page');
 });

@@ -414,6 +414,7 @@
             document.getElementById("discountUpdate").value = data.discount
             document.getElementById("discountValueUpdate").innerText = data.discount
 
+            document.getElementById("edit_status").checked = data.is_sales==1?true:false;
             let img = document.getElementById("imagePreviewUpdate");
             if (data.image.length > 0) {
                 img.src = "{{ asset('storage/'.':image') }}".replace(':image', data.image);
